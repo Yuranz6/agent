@@ -200,7 +200,7 @@ docker-compose up -d
    git push origin main
    ```
    - GitHub Actions 会自动构建并部署到 GitHub Pages
-   - 部署完成后，前端地址为：`https://baisiyou.github.io/clone`
+   - 部署完成后，前端地址为：`https://yuranz6.github.io/agent`
 
 #### 方式二：手动部署
 
@@ -236,7 +236,7 @@ REACT_APP_API_URL=https://your-render-backend-url.onrender.com/api npm run build
    ```
    NODE_ENV=production
    PORT=10000
-   CLIENT_URL=https://baisiyou.github.io
+   CLIENT_URL=https://yuranz6.github.io/agent
    ELEVENLABS_API_KEY=your_elevenlabs_api_key
    GOOGLE_AI_API_KEY=your_google_ai_api_key
    ELEVENLABS_VOICE_ID=your_voice_id（可选）
@@ -265,15 +265,14 @@ REACT_APP_API_URL=https://your-render-backend-url.onrender.com/api npm run build
    应该返回：`{"status":"ok","message":"Voice Clone API is running"}`
 
 2. **访问前端**
-   - 打开 https://baisiyou.github.io/clone
+   - 打开 https://yuranz6.github.io/agent
    - 检查浏览器控制台是否有 API 连接错误
    - 如果出现 CORS 错误，检查后端 `CLIENT_URL` 环境变量是否正确
 
 ### 常见问题
 
 1. **CORS 错误**
-   - 确保 Render 后端的 `CLIENT_URL` 环境变量设置为 `https://baisiyou.github.io`
-   - 不要包含末尾的 `/clone` 路径
+   - 确保 Render 后端的 `CLIENT_URL` 环境变量设置为 `https://yuranz6.github.io/agent`
 
 2. **前端无法连接后端**
    - 检查 `REACT_APP_API_URL` 是否正确设置为 Render 后端 URL

@@ -11,7 +11,7 @@ services:
       - key: PORT
         value: 10000
       - key: CLIENT_URL
-        value: https://baisiyou.github.io
+        value: https://yuranz6.github.io/agent
       - key: ELEVENLABS_API_KEY
         sync: false
       - key: GOOGLE_AI_API_KEY

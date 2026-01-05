@@ -2,7 +2,7 @@
   "name": "sound-clone-client",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://baisiyou.github.io/clone",
+  "homepage": "https://yuranz6.github.io/agent",
   "proxy": "http://localhost:3001",
   "dependencies": {
     "react": "^18.2.0",
