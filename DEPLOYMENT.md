@@ -219,7 +219,7 @@ REACT_APP_API_URL=https://your-render-backend-url.onrender.com/api npm run build
 
 2. **创建新的 Web Service**
    - 点击 "New" → "Web Service"
-   - 连接 GitHub 仓库 `baisiyou/clone`
+   - 连接 GitHub 仓库 `Yuranz6/agent`
 
 3. **配置服务**
    - **Name**: `clone-backend`（或其他名称）

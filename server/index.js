@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 // Middleware - CORS configuration
 const allowedOrigins = process.env.CLIENT_URL 
   ? process.env.CLIENT_URL.split(',').map(url => url.trim())
-  : ['http://localhost:3000', 'https://baisiyou.github.io'];
+  : ['http://localhost:3000', 'https://yuranz6.github.io'];
 
 app.use(cors({
   origin: function (origin, callback) {
