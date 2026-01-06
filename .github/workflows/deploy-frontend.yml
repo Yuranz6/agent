@@ -1,9 +1,10 @@
-name: Deploy Frontend to GitHub Pages
+name: Deploy Frontend to GitHub Pages (Voice Clone Chat - DISABLED)
 
 on:
-  push:
-    branches:
-      - main
+  # Disabled - using deploy-ehr-agent.yml instead
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 permissions:
@@ -42,7 +43,7 @@ jobs:
       - name: Build React app
         working-directory: ./client
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL || 'https://clone-i9i8.onrender.com/api' }}
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL || 'https://voice-clone-chat-backend.onrender.com/api' }}
         run: npm run build
 
       - name: Setup Pages
