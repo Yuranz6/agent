@@ -1,7 +1,13 @@
 """
 实时语音录制模块
 """
-import pyaudio
+try:
+    import pyaudio
+    PYAUDIO_AVAILABLE = True
+except ImportError:
+    PYAUDIO_AVAILABLE = False
+    pyaudio = None
+
 import wave
 import os
 from datetime import datetime
@@ -13,6 +19,12 @@ class VoiceRecorder:
     """实时语音录制器"""
     
     def __init__(self, sample_rate=16000, chunk_size=1024, channels=1):
+        if not PYAUDIO_AVAILABLE:
+            raise ImportError(
+                "pyaudio is not available. "
+                "Install it with: pip install pyaudio (requires PortAudio system library). "
+                "Note: Web app doesn't need pyaudio as it uses browser Web Speech API."
+            )
         self.sample_rate = sample_rate
         self.chunk_size = chunk_size
         self.channels = channels

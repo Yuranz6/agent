@@ -59,6 +59,15 @@ class SpeechToText:
         Returns:
             转录文本
         """
+        try:
+            import pyaudio
+        except ImportError:
+            raise ImportError(
+                "pyaudio is required for real-time transcription. "
+                "Install it with: pip install pyaudio (requires PortAudio system library). "
+                "Note: Web app uses browser Web Speech API instead."
+            )
+        
         text_parts = []
         
         with sr.Microphone(device_index=microphone_index) as source:
