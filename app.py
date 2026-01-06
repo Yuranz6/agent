@@ -57,13 +57,9 @@ def index():
 @app.route('/health')
 def health():
     """健康检查端点"""
-    import os
     return jsonify({
         'status': 'ok',
-        'template_folder': app.template_folder,
-        'static_folder': app.static_folder,
-        'template_exists': os.path.exists(os.path.join(app.template_folder, 'index.html')),
-        'cwd': os.getcwd()
+        'message': 'EHR Agent API is running'
     })
 
 @app.errorhandler(404)
@@ -293,18 +289,29 @@ if __name__ == '__main__':
                 continue
         return None
     
-    port = find_free_port(5000)
+    # 优先使用环境变量 PORT（Render 等平台会设置）
+    port = os.getenv('PORT')
+    if port:
+        try:
+            port = int(port)
+        except ValueError:
+            port = None
     
-    if port is None:
-        print(f"\n❌ 错误: 无法找到可用端口 (5000-5009)")
-        print(f"请关闭占用端口的程序:")
-        print(f"  lsof -ti:5000 | xargs kill -9")
-        exit(1)
-    
-    if port != 5000:
-        print(f"\n⚠️  端口 5000 被占用，使用端口 {port}")
+    # 如果没有环境变量，则查找可用端口
+    if not port:
+        port = find_free_port(5000)
+        if port is None:
+            print(f"\n❌ 错误: 无法找到可用端口 (5000-5009)")
+            print(f"请关闭占用端口的程序:")
+            print(f"  lsof -ti:5000 | xargs kill -9")
+            exit(1)
+        
+        if port != 5000:
+            print(f"\n⚠️  端口 5000 被占用，使用端口 {port}")
+        else:
+            print(f"\n✅ 使用端口 {port}")
     else:
-        print(f"\n✅ 使用端口 {port}")
+        print(f"\n✅ 使用环境变量端口: {port}")
     
     print(f"\n📋 应用信息:")
     print(f"   模板文件夹: {app.template_folder}")

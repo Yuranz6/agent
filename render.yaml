@@ -1,22 +1,17 @@
 services:
   - type: web
-    name: clone-backend
-    env: node
+    name: ehr-agent-backend
+    env: python
     plan: free
-    buildCommand: npm install
-    startCommand: node server/index.js
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 120
     envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 10000
-      - key: CLIENT_URL
-        value: https://yuranz6.github.io/agent
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: GOOGLE_API_KEY
+        sync: false
       - key: ELEVENLABS_API_KEY
         sync: false
-      - key: GOOGLE_AI_API_KEY
-        sync: false
-      - key: ELEVENLABS_VOICE_ID
-        sync: false
-        optional: true
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
 
