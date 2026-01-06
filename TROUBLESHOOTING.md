@@ -1,13 +1,13 @@
 # 404 错误排查指南
 
-## 问题：访问 https://baisiyou.github.io/clone/ 显示 404
+## 问题：访问 https://yuranz6.github.io/Voice-clone/ 显示 404
 
 ### 可能的原因和解决方法
 
 #### 1. GitHub Pages 未启用或 Source 设置错误
 
 **检查步骤：**
-1. 进入 GitHub 仓库：https://github.com/baisiyou/clone
+1. 进入 GitHub 仓库：https://github.com/yuranz6/Voice-clone
 2. 点击 **Settings** → **Pages**
 3. 检查 **Source** 设置
 

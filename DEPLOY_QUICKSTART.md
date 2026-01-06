@@ -18,7 +18,7 @@
 
 2. **创建 Web Service**
    - 点击 "New" → "Web Service"
-   - 连接仓库 `baisiyou/clone`
+   - 连接仓库 `yuranz6/Voice-clone`
 
 3. **配置服务**
    ```
@@ -34,7 +34,7 @@
    ```
    NODE_ENV=production
    PORT=10000
-   CLIENT_URL=https://baisiyou.github.io
+   CLIENT_URL=https://yuranz6.github.io
    ELEVENLABS_API_KEY=your_key_here
    GOOGLE_AI_API_KEY=your_key_here
    ```
@@ -74,7 +74,7 @@
    - 等待部署完成（约 2-3 分钟）
 
 5. **访问前端**
-   - URL: https://baisiyou.github.io/clone
+   - URL: https://yuranz6.github.io/Voice-clone
 
 ---
 
@@ -87,7 +87,7 @@ curl https://your-render-backend-url.onrender.com/api/health
 应该返回：`{"status":"ok","message":"Voice Clone API is running"}`
 
 ### 检查前端
-- 打开 https://baisiyou.github.io/clone
+- 打开 https://yuranz6.github.io/Voice-clone
 - 打开浏览器开发者工具（F12）
 - 查看 Console 是否有错误
 - 尝试克隆一个语音测试功能
@@ -97,7 +97,7 @@ curl https://your-render-backend-url.onrender.com/api/health
 ## 故障排查
 
 ### CORS 错误
-- 确保 Render 后端 `CLIENT_URL` = `https://baisiyou.github.io`（不包含 `/clone`）
+- 确保 Render 后端 `CLIENT_URL` = `https://yuranz6.github.io`（不包含 `/Voice-clone`）
 
 ### 前端无法连接后端
 - 检查 `REACT_APP_API_URL` 是否正确
