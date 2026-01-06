@@ -1,5 +1,10 @@
 // EHR Agent Web 应用前端 JavaScript
 
+// API 基础 URL 配置
+// 如果前端和后端在同一域名，使用相对路径
+// 如果前端部署在其他地方，需要设置完整的后端 URL
+const API_BASE_URL = window.API_BASE_URL || '';
+
 let recognition = null;
 let isRecording = false;
 let soapData = null;
@@ -172,7 +177,7 @@ async function generateSOAP() {
     showLoading();
     
     try {
-        const response = await fetch('/api/generate-soap', {
+        const response = await fetch(`${API_BASE_URL}/api/generate-soap`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -243,7 +248,7 @@ async function recommendExaminations() {
     
     try {
         const transcript = document.getElementById('consultation-text').value.trim();
-        const response = await fetch('/api/recommend-examinations', {
+        const response = await fetch(`${API_BASE_URL}/api/recommend-examinations`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -320,7 +325,7 @@ async function checkDrugConflicts() {
     showLoading();
     
     try {
-        const response = await fetch('/api/check-drug-conflicts', {
+        const response = await fetch(`${API_BASE_URL}/api/check-drug-conflicts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -449,7 +454,7 @@ async function saveReport() {
             report += `初步诊断: ${(soapData.preliminary_diagnosis || []).join(', ')}\n\n`;
         }
         
-        const response = await fetch('/api/save-report', {
+        const response = await fetch(`${API_BASE_URL}/api/save-report`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

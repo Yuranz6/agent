@@ -109,6 +109,13 @@
         </section>
     </div>
 
+    <script>
+        // 配置 API 基础 URL
+        // 如果前端和后端在同一域名，留空使用相对路径
+        // 如果前端部署在其他地方，设置为完整的后端 URL，例如：
+        // window.API_BASE_URL = 'https://agent-rea2.onrender.com';
+        window.API_BASE_URL = window.API_BASE_URL || '';
+    </script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
